@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #0c2e57;
+  --primary: #fffffe;
+  --secondary: #abbed4;
+  --highlight: #276ec4;
+  --typewriter-speed: 6s;
+  --steps: 22;
+  --blink-speed: 800ms;
+}
+
+/* Default styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: var(--bg-color);
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: normal;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Before is the background that covers the text initially and steps through the page. After is the blick animation starting left and moving through to the right.  */
+.heading::before,
+.heading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Background color box moving right across the screen, revealing the letters. Step = amount of letters inc spaces and full stops.  */
+.heading::before {
+  background: var(--bg-color);
+  animation: typewriter var(--typewriter-speed) steps(var(--steps)) 1s forwards;
+}
+
+/* After is the thin blinker that matches the above animation and stays infinitely to keep the blinking effect. */
+.heading::after {
+  width: 0.2rem;
+  background: var(--highlight);
+  animation: typewriter var(--typewriter-speed) steps(var(--steps)) 1s forwards,
+    blink var(--blink-speed) steps(var(--steps)) infinite;
+}
+
+.welcome {
+  font-family: "Roboto Mono", monospace;
+  color: var(--secondary);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Currently hidden until ready */
+.enter-btn {
+  display: none;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: "Roboto Mono", monospace;
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--bg-color);
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+}
+
+/* Fade in transition timed for after the typing animation is complete. */
+.welcome,
+.enter-btn {
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeUp 2s ease calc(var(--typewriter-speed) + 2s) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .welcome {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 64rem) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .welcome {
+    font-size: 2rem;
+  }
+}
