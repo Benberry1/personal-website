@@ -3,7 +3,7 @@
   --primary: #fffffe;
   --secondary: #abbed4;
   --highlight: #276ec4;
-  --typewriter-speed: 6s;
+  --typewriter-speed: 3s;
   --steps: 22;
   --blink-speed: 800ms;
 }
@@ -116,6 +116,7 @@ body {
   background: #0c2e57;
   border-radius: 1rem;
   border: 1px solid var(--bg-color);
+  transition: width 2s;
 }
 
 .form-heading {
