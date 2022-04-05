@@ -187,7 +187,7 @@ body {
   gap: 1.5rem;
   justify-items: center;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   width: 80%;
   text-align: center;
 }
@@ -196,7 +196,7 @@ body {
 .github-logo,
 .linkedin-logo {
   height: auto;
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .linkedin-logo {
