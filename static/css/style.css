@@ -15,6 +15,11 @@
   margin: 0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background: var(--bg-color);
 }
@@ -28,7 +33,7 @@ body {
   grid-template-rows: repeat(3, 1fr);
   align-items: end;
   justify-items: center;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .container {
@@ -189,7 +194,6 @@ body {
   justify-items: center;
   align-items: center;
   margin-bottom: 5rem;
-  width: 80%;
   text-align: center;
 }
 
